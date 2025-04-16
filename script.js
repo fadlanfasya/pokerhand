@@ -15,7 +15,7 @@ const MAX_SUBMITS_PER_ROUND = 3; // Add below MAX_DISCARDS_PER_ROUND
 const SCORE_TABLE = {
     "Royal Flush": 1000, "Straight Flush": 500, "Four of a Kind": 300,
     "Full House": 150, "Flush": 100, "Straight": 80, "Three of a Kind": 50,
-    "Two Pair": 25, "Pair": 10, "High Card": 0
+    "Two Pair": 25, "Pair": 10, "High Card": 5
 };
 
 // --- Buff ---
@@ -327,7 +327,7 @@ function evaluateHand(hand) {
 
     // Check for Royal Flush
     if (
-        sortedHand.length >= 5 &&
+        sortedHand.length === 5 &&
         isFlush && isStraight &&
         sortedHand[0].rank === "A" &&
         sortedHand[4].rank === "10"
@@ -335,8 +335,7 @@ function evaluateHand(hand) {
         return { rankName: "Royal Flush", rankCounts };
     }
 
-    // Check for Straight Flush
-    if (isFlush && isStraight) {
+    if (sortedHand.length === 5 && isFlush && isStraight) {
         return { rankName: "Straight Flush", rankCounts };
     }
 
@@ -381,11 +380,14 @@ function evaluateHand(hand) {
 }
 
 function checkFlush(hand) {
+    if (hand.length !== 5) return false;
     const firstSuit = hand[0].suit;
     return hand.every(card => card.suit === firstSuit);
 }
 
+
 function checkStraight(sortedHand) {
+    if (sortedHand.length !== 5) return false;
     for (let i = 0; i < sortedHand.length - 1; i++) {
         if (sortedHand[i].value - 1 !== sortedHand[i + 1].value) {
             return false;
@@ -393,6 +395,7 @@ function checkStraight(sortedHand) {
     }
     return true;
 }
+
 
 function countRanks(hand) {
     const counts = {};
