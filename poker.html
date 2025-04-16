@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker Hand Challenge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-wrapper">
+        <div id="poker-guide">
+            <h2>Poker Hand Ranks</h2>
+            <p>(Highest to Lowest)</p>
+            <ul>
+                <li>Royal Flush</li>
+                <li>Straight Flush</li>
+                <li>Four of a Kind</li>
+                <li>Full House</li>
+                <li>Flush</li>
+                <li>Straight</li>
+                <li>Three of a Kind</li>
+                <li>Two Pair</li>
+                <li>One Pair</li>
+                <li>High Card</li>
+            </ul>
+            <p><em>(Note: Scores in this game might differ)</em></p>
+        </div>
+
+        <div class="game-container">
+            <h1>Poker Hand Challenge</h1>
+
+            <div class="game-info">
+                <div>Target Score (Blind): <span id="target-score">100</span></div>
+                <div>Your Score: <span id="current-score">0</span></div>
+                <div>Round Message: <span id="round-message">Press "Start Round"</span></div>
+            </div>
+
+            <div class="buff-info">
+                Active Buff: <span id="buff-description">None</span>
+            </div>
+
+            <h2>Your Hand:</h2>
+            <div id="player-hand" class="hand-area">
+                <!-- Cards will appear here -->
+            </div>
+
+            <div class="action-buttons">
+                <button id="start-round-btn">Start Round</button>
+                <button id="discard-btn" disabled>Discard Selected</button>
+                <!-- Submit and Restart buttons will be added dynamically -->
+            </div>
+
+            <div class="help-section">
+                <h3>How to Play:</h3>
+                <ul>
+                    <li><strong>Select cards</strong> by clicking on them - selected cards get a yellow border</li>
+                    <li>Use <strong>Discard</strong> to replace selected cards (3 discards per round max)</li>
+                    <li>Use <strong>Submit Hand</strong> when you're happy with your selection</li>
+                    <li>If you select specific cards before submitting, only those will be scored</li>
+                    <li>If no cards are selected when submitting, your entire hand will be scored</li>
+                    <li>Try to beat the target score to advance to the next round!</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

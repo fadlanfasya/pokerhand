@@ -1,0 +1,253 @@
+/* Basic Reset & Body Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #3c6255;
+    color: #f1f1f1;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* App Wrapper for Layout */
+.app-wrapper {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+/* Poker Guide Styling */
+#poker-guide {
+    flex: 0 0 200px;
+    background-color: #a6bb8d;
+    color: #333;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#poker-guide h2 {
+    color: #3c6255;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#poker-guide p {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+#poker-guide p em {
+    font-size: 0.8rem;
+    color: #777;
+}
+
+#poker-guide ul {
+    list-style: none;
+    padding: 0;
+}
+
+#poker-guide li {
+    background-color: #eef2e6;
+    color: #444;
+    padding: 8px 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    border-left: 4px solid #61876e;
+}
+
+/* Game Container Styling */
+.game-container {
+    flex-grow: 1;
+    text-align: center;
+    background: #61876e;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+h1,
+.game-container h2 {
+    color: #e8e8e8;
+    margin-bottom: 15px;
+}
+
+/* Info Areas */
+.game-info,
+.buff-info {
+    background-color: #a6bb8d;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.game-info div,
+.buff-info {
+    margin-bottom: 5px;
+}
+
+.game-info span,
+.buff-info span {
+    font-weight: bold;
+}
+
+/* Hand Area */
+.hand-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 120px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #4a7c59;
+    border-radius: 5px;
+}
+
+/* Card Styling */
+.card {
+    width: 70px;
+    height: 100px;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    padding: 5px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    user-select: none;
+    transition: transform 0.2s ease, border 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card[data-selected="true"] {
+    border: 3px solid #ffcc00;
+    transform: translateY(-3px);
+}
+
+.card .rank {
+    font-size: 1.4rem;
+    font-weight: bold;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.card .suit {
+    font-size: 1.8rem;
+    position: absolute;
+    bottom: 5px;
+    right: 8px;
+}
+
+/* Suit Colors */
+.card .suit.hearts,
+.card .suit.diamonds {
+    color: #d90429;
+}
+
+.card .suit.clubs,
+.card .suit.spades {
+    color: #2b2d42;
+}
+
+.card[data-suit="hearts"] .rank,
+.card[data-suit="diamonds"] .rank {
+    color: #d90429;
+}
+
+.card[data-suit="clubs"] .rank,
+.card[data-suit="spades"] .rank {
+    color: #2b2d42;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.action-buttons button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.action-buttons button:hover:not(:disabled) {
+    filter: brightness(90%);
+}
+
+.action-buttons button:disabled {
+    background-color: #aaa;
+    color: #666;
+    cursor: not-allowed;
+}
+
+/* Button Colors */
+#start-round-btn {
+    background-color: #eacda3;
+    color: #333;
+}
+
+#discard-btn {
+    background-color: #d8b26e;
+    color: #333;
+}
+
+#submit-btn {
+    background-color: #61b15a;
+    color: white;
+}
+
+#restart-btn {
+    background-color: #ff686b;
+    color: white;
+}
+
+/* Help Section */
+.help-section {
+    background-color: #a6bb8d;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.help-section h3 {
+    margin-bottom: 8px;
+    color: #3c6255;
+}
+
+.help-section ul {
+    margin-left: 20px;
+}
+
+.help-section li {
+    margin-bottom: 5px;
+}
